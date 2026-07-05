@@ -154,6 +154,22 @@ h2.sec-title{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:clam
 .method small{display:block;color:var(--gray);font-size:.85rem}
 @media(max-width:820px){.contact-box{grid-template-columns:1fr;padding:36px 26px}}
 
+/* ---- Lead form ---- */
+.lead-form{margin-top:26px;display:flex;flex-direction:column;gap:14px}
+.ff-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ff{display:flex;flex-direction:column;gap:6px}
+.ff span{font-size:.85rem;font-weight:600;color:var(--ink-soft)}
+.ff input,.ff select,.ff textarea{
+  font-family:'Assistant',sans-serif;font-size:1rem;color:var(--ink);
+  border:1px solid var(--line);border-radius:2px;padding:11px 14px;background:#fff;width:100%;
+  transition:border-color .2s;
+}
+.ff input:focus,.ff select:focus,.ff textarea:focus{outline:none;border-color:var(--brass)}
+.ff input.invalid,.ff select.invalid{border-color:#B4432F}
+.ff-submit{border:none;cursor:pointer;margin-top:4px;width:100%}
+.ff-err{color:#B4432F;font-size:.88rem}
+@media(max-width:520px){.ff-row{grid-template-columns:1fr}}
+
 /* ---- Footer ---- */
 footer{border-top:1px solid var(--line);padding:34px 0;background:var(--paper-deep)}
 .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;color:var(--gray);font-size:.9rem}
@@ -323,20 +339,44 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
         <div>
           <div class="sec-label">צרו קשר</div>
           <h2>שיחת ייעוץ ראשונה — בלי התחייבות</h2>
-          <p>ספרו לנו בקצרה במה מדובר, ונחזור אליכם תוך יום עסקים עם הערכה ראשונית וכיוון פעולה.</p>
+          <p>מלאו את הפרטים ונחזור אליכם תוך יום עסקים עם הערכה ראשונית וכיוון פעולה. כל השדות נדרשים.</p>
+          <div class="lead-form">
+            <div class="ff-row">
+              <label class="ff"><span>שם פרטי *</span><input type="text" id="f-first" autocomplete="given-name" required></label>
+              <label class="ff"><span>שם משפחה *</span><input type="text" id="f-last" autocomplete="family-name" required></label>
+            </div>
+            <label class="ff"><span>סיבת הפנייה *</span>
+              <select id="f-reason" required>
+                <option value="" selected disabled>בחרו תחום…</option>
+                <option>נדל"ן ומקרקעין</option>
+                <option>קניין רוחני</option>
+                <option>דיני חוזים</option>
+                <option>דיני עבודה</option>
+                <option>דיני ירושה ועיזבונות</option>
+                <option>אחר</option>
+              </select>
+            </label>
+            <div class="ff-row">
+              <label class="ff"><span>טלפון נייד *</span><input type="tel" id="f-phone" inputmode="tel" autocomplete="tel" required></label>
+              <label class="ff"><span>דוא"ל *</span><input type="email" id="f-email" autocomplete="email" required></label>
+            </div>
+            <label class="ff"><span>פרטים נוספים (רשות)</span><textarea id="f-msg" rows="3"></textarea></label>
+            <button type="button" class="btn btn-primary ff-submit" onclick="sendLead()">שליחת פנייה</button>
+            <p class="ff-err" id="f-err" hidden>נא למלא את כל שדות החובה (שם פרטי, שם משפחה, סיבת פנייה, נייד ודוא"ל תקין).</p>
+          </div>
         </div>
         <div class="contact-methods">
           <a class="method" href="mailto:melloullaw@gmail.com">
             <span class="m-icon">✉</span>
             <span><b>melloullaw@gmail.com</b><small>מענה תוך יום עסקים</small></span>
           </a>
-          <a class="method" href="tel:+972-0-0000000">
+          <a class="method" href="tel:+972587347777">
             <span class="m-icon">☎</span>
-            <span><b>טלפון המשרד</b><small>יש לעדכן מספר</small></span>
+            <span><b>058-734-7777</b><small>טלפון המשרד</small></span>
           </a>
-          <a class="method" href="https://wa.me/972000000000">
+          <a class="method" href="https://wa.me/972587347777">
             <span class="m-icon">✆</span>
-            <span><b>וואטסאפ</b><small>יש לעדכן מספר</small></span>
+            <span><b>וואטסאפ</b><small>058-734-7777 — מענה מהיר</small></span>
           </a>
         </div>
       </div>
@@ -356,6 +396,30 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
 </footer>
 
 <script>
+function sendLead(){
+  const g=id=>document.getElementById(id);
+  const fields=[g('f-first'),g('f-last'),g('f-reason'),g('f-phone'),g('f-email')];
+  let ok=true;
+  fields.forEach(f=>{
+    const bad=!f.value||!f.value.trim();
+    f.classList.toggle('invalid',bad);
+    if(bad)ok=false;
+  });
+  const email=g('f-email');
+  if(email.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){email.classList.add('invalid');ok=false}
+  const phone=g('f-phone');
+  if(phone.value&&phone.value.replace(/\D/g,'').length<9){phone.classList.add('invalid');ok=false}
+  g('f-err').hidden=ok;
+  if(!ok)return;
+  const subject='פנייה חדשה מהאתר — '+g('f-reason').value;
+  const body='שם פרטי: '+g('f-first').value.trim()
+    +'\nשם משפחה: '+g('f-last').value.trim()
+    +'\nסיבת הפנייה: '+g('f-reason').value
+    +'\nטלפון נייד: '+g('f-phone').value.trim()
+    +'\nדוא"ל: '+g('f-email').value.trim()
+    +(g('f-msg').value.trim()?('\n\nפרטים נוספים:\n'+g('f-msg').value.trim()):'');
+  window.location.href='mailto:melloullaw@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
