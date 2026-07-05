@@ -168,6 +168,7 @@ h2.sec-title{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:clam
 .ff input.invalid,.ff select.invalid{border-color:#B4432F}
 .ff-submit{border:none;cursor:pointer;margin-top:4px;width:100%}
 .ff-err{color:#B4432F;font-size:.88rem}
+.ff-ok{color:#2E7D4F;font-weight:600;font-size:1.05rem;padding:18px 0}
 @media(max-width:520px){.ff-row{grid-template-columns:1fr}}
 
 /* ---- Footer ---- */
@@ -411,14 +412,30 @@ function sendLead(){
   if(phone.value&&phone.value.replace(/\D/g,'').length<9){phone.classList.add('invalid');ok=false}
   g('f-err').hidden=ok;
   if(!ok)return;
-  const subject='פנייה חדשה מהאתר — '+g('f-reason').value;
-  const body='שם פרטי: '+g('f-first').value.trim()
-    +'\nשם משפחה: '+g('f-last').value.trim()
-    +'\nסיבת הפנייה: '+g('f-reason').value
-    +'\nטלפון נייד: '+g('f-phone').value.trim()
-    +'\nדוא"ל: '+g('f-email').value.trim()
-    +(g('f-msg').value.trim()?('\n\nפרטים נוספים:\n'+g('f-msg').value.trim()):'');
-  window.location.href='mailto:melloullaw@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  const btn=document.querySelector('.ff-submit');
+  btn.disabled=true;btn.textContent='שולח…';
+  const payload={
+    'שם פרטי':g('f-first').value.trim(),
+    'שם משפחה':g('f-last').value.trim(),
+    'סיבת הפנייה':g('f-reason').value,
+    'טלפון נייד':g('f-phone').value.trim(),
+    'דוא"ל':g('f-email').value.trim(),
+    'פרטים נוספים':g('f-msg').value.trim()||'—',
+    _subject:'פנייה חדשה מהאתר — '+g('f-reason').value,
+    _template:'table'
+  };
+  fetch('https://formsubmit.co/ajax/melloullaw@gmail.com',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(payload)
+  }).then(r=>{
+    if(!r.ok)throw new Error();
+    document.querySelector('.lead-form').innerHTML='<p class="ff-ok">✓ פנייתכם התקבלה. ניצור עמכם קשר תוך יום עסקים.</p>';
+  }).catch(()=>{
+    btn.disabled=false;btn.textContent='שליחת פנייה';
+    const body='שם פרטי: '+g('f-first').value.trim()+'\nשם משפחה: '+g('f-last').value.trim()+'\nסיבת הפנייה: '+g('f-reason').value+'\nטלפון נייד: '+g('f-phone').value.trim()+'\nדוא"ל: '+g('f-email').value.trim()+(g('f-msg').value.trim()?('\n\nפרטים נוספים:\n'+g('f-msg').value.trim()):'');
+    window.location.href='mailto:melloullaw@gmail.com?subject='+encodeURIComponent('פנייה חדשה מהאתר — '+g('f-reason').value)+'&body='+encodeURIComponent(body);
+  });
 }
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
