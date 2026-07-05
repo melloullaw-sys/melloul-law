@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מלול ושות' | משרד עורכי דין — נדל"ן, קניין רוחני, חוזים, דיני עבודה וירושה</title>
+<meta name="description" content="מלול ושות' — משרד עורכי דין עם ניסיון של מעל עשור בנדל&quot;ן, קניין רוחני, חוזים, דיני עבודה ודיני ירושה. ליווי משפטי אישי, מקצועי וממוקד תוצאה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14202E;
+  --ink-soft:#2B3A4C;
+  --paper:#FCFBF7;
+  --paper-deep:#F4F1E9;
+  --brass:#9C7A3C;
+  --brass-soft:#B99B5E;
+  --line:#E2DDD1;
+  --gray:#5C6673;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Assistant',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.7;
+  font-size:17px;
+}
+.serif{font-family:'Frank Ruhl Libre',serif}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ---- Header ---- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(252,251,247,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:1.35rem;letter-spacing:.02em;color:var(--ink);text-decoration:none}
+.logo span{color:var(--brass);font-weight:400}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--ink-soft);text-decoration:none;font-weight:500;font-size:.95rem;transition:color .2s}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--brass)}
+.nav-cta{background:var(--ink);color:var(--paper)!important;padding:8px 20px;border-radius:2px;font-weight:600}
+.nav-cta:hover{background:var(--brass)!important;color:#fff!important}
+@media(max-width:760px){.nav-links{display:none}.nav-cta-mobile{display:inline-block;background:var(--ink);color:var(--paper);padding:7px 16px;border-radius:2px;text-decoration:none;font-weight:600;font-size:.9rem}}
+@media(min-width:761px){.nav-cta-mobile{display:none}}
+
+/* ---- Hero ---- */
+.hero{padding:96px 0 80px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero-kicker{
+  display:inline-block;color:var(--brass);font-weight:600;letter-spacing:.14em;
+  font-size:.82rem;margin-bottom:22px;border:1px solid var(--brass-soft);
+  padding:5px 14px;border-radius:2px;
+}
+.hero h1{
+  font-family:'Frank Ruhl Libre',serif;font-weight:900;
+  font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.15;max-width:17ch;
+}
+.hero h1 em{font-style:normal;color:var(--brass)}
+.hero p.lead{margin-top:26px;font-size:1.18rem;color:var(--gray);max-width:56ch;font-weight:400}
+.hero-actions{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 30px;border-radius:2px;text-decoration:none;font-weight:600;font-size:1rem;transition:all .2s}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:var(--brass);color:#fff}
+.btn-ghost{border:1px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--brass);color:var(--brass)}
+.hero-mark{
+  position:absolute;left:-40px;top:30px;
+  font-family:'Frank Ruhl Libre',serif;font-weight:900;
+  font-size:26rem;line-height:1;color:var(--paper-deep);
+  z-index:-1;user-select:none;pointer-events:none;
+}
+.hero-stats{margin-top:56px;display:flex;gap:0;flex-wrap:wrap;border-top:1px solid var(--line)}
+.hero-stat{padding:20px 36px 0 36px;border-left:1px solid var(--line)}
+.hero-stat:first-child{padding-right:0}
+.hero-stat:last-child{border-left:none}
+.hero-stat b{font-family:'Frank Ruhl Libre',serif;font-size:1.7rem;font-weight:700;display:block;color:var(--ink)}
+.hero-stat span{font-size:.9rem;color:var(--gray)}
+@media(max-width:640px){.hero{padding:60px 0 52px}.hero-stat{padding:16px 20px 0 20px}.hero-stat:first-child{padding-right:0}}
+
+/* ---- Sections ---- */
+section{padding:84px 0}
+.sec-label{color:var(--brass);font-weight:600;letter-spacing:.14em;font-size:.8rem;margin-bottom:14px}
+h2.sec-title{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:clamp(1.7rem,3.5vw,2.4rem);line-height:1.25;margin-bottom:22px}
+
+/* ---- About ---- */
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:start}
+.about-text p{margin-bottom:18px;color:var(--ink-soft)}
+.about-quote{
+  background:var(--ink);color:var(--paper);padding:36px 32px;border-radius:2px;position:relative;
+}
+.about-quote::before{content:'§';position:absolute;top:14px;left:22px;font-family:'Frank Ruhl Libre',serif;font-size:3rem;color:var(--brass);opacity:.55;line-height:1}
+.about-quote p{font-family:'Frank Ruhl Libre',serif;font-size:1.25rem;line-height:1.6;font-weight:400}
+.about-quote small{display:block;margin-top:18px;color:var(--brass-soft);font-size:.9rem;letter-spacing:.05em}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+
+/* ---- Practice areas: legal clauses ---- */
+.areas{background:var(--paper-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.clause-list{margin-top:14px}
+.clause{
+  display:grid;grid-template-columns:110px 1fr;gap:28px;
+  padding:34px 0;border-bottom:1px solid var(--line);align-items:start;
+}
+.clause:last-child{border-bottom:none}
+.clause-num{
+  font-family:'Frank Ruhl Libre',serif;color:var(--brass);
+  font-size:1.05rem;font-weight:500;letter-spacing:.03em;padding-top:4px;white-space:nowrap;
+}
+.clause h3{font-family:'Frank Ruhl Libre',serif;font-size:1.45rem;font-weight:700;margin-bottom:8px}
+.clause p{color:var(--gray);max-width:64ch}
+@media(max-width:640px){.clause{grid-template-columns:1fr;gap:6px;padding:26px 0}}
+
+/* ---- Team ---- */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-top:16px}
+.member{
+  border:1px solid var(--line);border-radius:2px;padding:30px 26px;background:#fff;
+  transition:border-color .25s, transform .25s;
+}
+.member:hover{border-color:var(--brass-soft);transform:translateY(-3px)}
+.member .initial{
+  width:52px;height:52px;border-radius:50%;background:var(--ink);color:var(--paper);
+  font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:1.3rem;
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+}
+.member h3{font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;font-weight:700}
+.member .role{color:var(--brass);font-size:.88rem;font-weight:600;letter-spacing:.04em;margin:4px 0 10px}
+.member p{font-size:.95rem;color:var(--gray)}
+
+/* ---- Why us ---- */
+.why{background:var(--ink);color:var(--paper)}
+.why .sec-label{color:var(--brass-soft)}
+.why h2.sec-title{color:var(--paper)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:36px;margin-top:36px}
+.why-item h3{font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;color:var(--brass-soft);margin-bottom:8px;font-weight:700}
+.why-item p{color:#B9C2CD;font-size:.98rem}
+.why-item .rule{width:34px;height:2px;background:var(--brass);margin-bottom:16px}
+
+/* ---- Contact ---- */
+.contact-box{
+  border:1px solid var(--line);border-radius:2px;background:#fff;
+  padding:52px 44px;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;
+}
+.contact-box h2{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:12px}
+.contact-box p{color:var(--gray)}
+.contact-methods{display:flex;flex-direction:column;gap:16px}
+.method{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);border:1px solid var(--line);padding:15px 20px;border-radius:2px;transition:border-color .2s}
+.method:hover{border-color:var(--brass)}
+.method .m-icon{color:var(--brass);font-size:1.2rem}
+.method b{font-size:1rem}
+.method small{display:block;color:var(--gray);font-size:.85rem}
+@media(max-width:820px){.contact-box{grid-template-columns:1fr;padding:36px 26px}}
+
+/* ---- Footer ---- */
+footer{border-top:1px solid var(--line);padding:34px 0;background:var(--paper-deep)}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;color:var(--gray);font-size:.9rem}
+.foot .logo{font-size:1.05rem}
+.disclaimer{font-size:.8rem;color:#8A93A0;margin-top:10px;max-width:70ch}
+
+/* ---- Reveal ---- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#top">מלול <span>ושות'</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">אודות</a></li>
+      <li><a href="#areas">תחומי עיסוק</a></li>
+      <li><a href="#team">הצוות</a></li>
+      <li><a href="#contact" class="nav-cta">צרו קשר</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta-mobile">צרו קשר</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container" style="position:relative">
+      <div class="hero-mark serif" aria-hidden="true">§</div>
+      <span class="hero-kicker">משרד עורכי דין · מעל עשור של ניסיון</span>
+      <h1>ליווי משפטי מדויק, <em>אישי</em> וממוקד תוצאה</h1>
+      <p class="lead">מלול ושות' מלווה יחידים, משפחות ועסקים בצמתים המשפטיים המשמעותיים של החיים — מעסקת הנדל"ן הראשונה, דרך הגנה על קניין רוחני וחוזים מסחריים, ועד יחסי עבודה והסדרת ירושה. ניסיון של יותר מעשור, יחס של משרד בוטיק.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">קביעת שיחת ייעוץ</a>
+        <a class="btn btn-ghost" href="#areas">תחומי העיסוק שלנו</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>10+</b><span>שנות ניסיון</span></div>
+        <div class="hero-stat"><b>5</b><span>תחומי התמחות</span></div>
+        <div class="hero-stat"><b>4</b><span>עורכי דין</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container about-grid">
+      <div class="about-text reveal">
+        <div class="sec-label">אודות המשרד</div>
+        <h2 class="sec-title">משרד בוטיק עם ראייה רחבה</h2>
+        <p>מלול ושות' הוא משרד עורכי דין הפועל מעל עשור ומעניק ללקוחותיו ליווי משפטי מקיף בחמישה תחומי ליבה: נדל"ן ומקרקעין, קניין רוחני, דיני חוזים, דיני עבודה ודיני ירושה ועיזבונות.</p>
+        <p>הייחוד של המשרד טמון בשילוב שבין מקצועיות בלתי מתפשרת לבין יחס אישי וזמינות מלאה. אצלנו כל תיק מנוהל על ידי עורך דין שותף — לא מועבר הלאה, לא נעלם במגירה. אנחנו מאמינים שייעוץ משפטי טוב מתחיל בהקשבה, ממשיך באסטרטגיה ברורה, ומסתיים בתוצאה שאפשר למדוד.</p>
+        <p>לקוחות המשרד — אנשים פרטיים, יזמים, חברות וארגונים — נהנים מגישה עסקית ופרקטית: אנחנו לא רק אומרים מה החוק קובע, אלא בונים יחד אתכם את הדרך הבטוחה והחכמה ביותר להשיג את המטרה.</p>
+      </div>
+      <aside class="about-quote reveal">
+        <p>"תיק משפטי הוא לא רק מסמכים — הוא אנשים, נכסים ועתיד. כך אנחנו מתייחסים לכל לקוח."</p>
+        <small>— תמיר מלול, שותף מייסד</small>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PRACTICE AREAS -->
+  <section class="areas" id="areas">
+    <div class="container">
+      <div class="sec-label">תחומי עיסוק</div>
+      <h2 class="sec-title">חמישה תחומי ליבה, מומחיות אחת: אתם</h2>
+      <div class="clause-list">
+        <article class="clause reveal">
+          <div class="clause-num">סעיף א׳</div>
+          <div>
+            <h3>נדל"ן ומקרקעין</h3>
+            <p>ליווי עסקאות מכר ורכישה של דירות, בתים ונכסים מסחריים, התחדשות עירונית (פינוי־בינוי ותמ"א 38), הסכמי שיתוף, בדיקות נאותות, מיסוי מקרקעין ורישום זכויות — מהמשא ומתן ועד המפתח ביד.</p>
+          </div>
+        </article>
+        <article class="clause reveal">
+          <div class="clause-num">סעיף ב׳</div>
+          <div>
+            <h3>קניין רוחני</h3>
+            <p>הגנה על הנכסים הלא־מוחשיים שלכם: סימני מסחר, זכויות יוצרים, סודות מסחריים, הסכמי רישוי והעברת ידע. ליווי סטארטאפים, יוצרים ועסקים בבניית אסטרטגיית IP ובאכיפתה.</p>
+          </div>
+        </article>
+        <article class="clause reveal">
+          <div class="clause-num">סעיף ג׳</div>
+          <div>
+            <h3>דיני חוזים</h3>
+            <p>ניסוח, בדיקה ומשא ומתן על חוזים מסחריים ופרטיים: הסכמי מייסדים, הסכמי שירותים וספקים, הסכמי שכירות, שותפויות ועסקאות מורכבות — וכן ייצוג בסכסוכי חוזים והפרות.</p>
+          </div>
+        </article>
+        <article class="clause reveal">
+          <div class="clause-num">סעיף ד׳</div>
+          <div>
+            <h3>דיני עבודה</h3>
+            <p>ייצוג עובדים ומעסיקים: הסכמי העסקה, סיום יחסי עבודה ושימוע, זכויות סוציאליות, אי־תחרות וסודיות, וייצוג בבתי הדין לעבודה — עם דגש על פתרון מהיר וחכם של מחלוקות.</p>
+          </div>
+        </article>
+        <article class="clause reveal">
+          <div class="clause-num">סעיף ה׳</div>
+          <div>
+            <h3>דיני ירושה ועיזבונות</h3>
+            <p>עריכת צוואות והסכמי ממון, ייפוי כוח מתמשך, ניהול עיזבונות, בקשות לצווי ירושה וקיום צוואה, וייצוג בסכסוכי ירושה — ברגישות, בדיסקרטיות ובמקצועיות.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team">
+    <div class="container">
+      <div class="sec-label">הצוות המשפטי</div>
+      <h2 class="sec-title">עורכי הדין של המשרד</h2>
+      <div class="team-grid">
+        <article class="member reveal">
+          <div class="initial">ת</div>
+          <h3>עו"ד תמיר מלול</h3>
+          <div class="role">שותף מייסד</div>
+          <p>מוביל את תחומי הנדל"ן והחוזים במשרד. ניסיון עשיר בליווי עסקאות מקרקעין מורכבות והתחדשות עירונית.</p>
+        </article>
+        <article class="member reveal">
+          <div class="initial">נ</div>
+          <h3>עו"ד נבו בן שטרית</h3>
+          <div class="role">שותף</div>
+          <p>מתמחה בקניין רוחני ובליווי משפטי של חברות טכנולוגיה, יזמים ויוצרים — מהרעיון ועד ההגנה עליו.</p>
+        </article>
+        <article class="member reveal">
+          <div class="initial">ז</div>
+          <h3>עו"ד זהר הר נוי</h3>
+          <div class="role">שותפה</div>
+          <p>מובילה את תחום דיני העבודה: ייצוג עובדים ומעסיקים, ליווי הליכי שימוע וייצוג בבתי הדין לעבודה.</p>
+        </article>
+        <article class="member reveal">
+          <div class="initial">א</div>
+          <h3>עו"ד אדם רבינוביץ'</h3>
+          <div class="role">שותף</div>
+          <p>מתמחה בדיני ירושה ועיזבונות: צוואות, ייפוי כוח מתמשך, ניהול עיזבונות וייצוג בסכסוכי ירושה.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why">
+    <div class="container">
+      <div class="sec-label">למה מלול ושות'</div>
+      <h2 class="sec-title">מה מקבלים אצלנו</h2>
+      <div class="why-grid">
+        <div class="why-item reveal"><div class="rule"></div><h3>שותף בכל תיק</h3><p>כל לקוח מלווה ישירות על ידי עורך דין שותף — לא מתמחה, לא "ניצור קשר בהמשך".</p></div>
+        <div class="why-item reveal"><div class="rule"></div><h3>שקיפות מלאה</h3><p>הצעת שכר טרחה ברורה מראש, עדכונים שוטפים, ואפס הפתעות בחשבון.</p></div>
+        <div class="why-item reveal"><div class="rule"></div><h3>חשיבה עסקית</h3><p>אנחנו מודדים הצלחה בתוצאה שלכם — לא באורך המכתבים. פתרון מהיר עדיף על התדיינות ארוכה.</p></div>
+        <div class="why-item reveal"><div class="rule"></div><h3>זמינות אמיתית</h3><p>מענה מהיר בטלפון, במייל ובוואטסאפ. כשמשהו דחוף לכם — הוא דחוף גם לנו.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box reveal">
+        <div>
+          <div class="sec-label">צרו קשר</div>
+          <h2>שיחת ייעוץ ראשונה — בלי התחייבות</h2>
+          <p>ספרו לנו בקצרה במה מדובר, ונחזור אליכם תוך יום עסקים עם הערכה ראשונית וכיוון פעולה.</p>
+        </div>
+        <div class="contact-methods">
+          <a class="method" href="mailto:melloullaw@gmail.com">
+            <span class="m-icon">✉</span>
+            <span><b>melloullaw@gmail.com</b><small>מענה תוך יום עסקים</small></span>
+          </a>
+          <a class="method" href="tel:+972-0-0000000">
+            <span class="m-icon">☎</span>
+            <span><b>טלפון המשרד</b><small>יש לעדכן מספר</small></span>
+          </a>
+          <a class="method" href="https://wa.me/972000000000">
+            <span class="m-icon">✆</span>
+            <span><b>וואטסאפ</b><small>יש לעדכן מספר</small></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot">
+      <a class="logo" href="#top">מלול <span>ושות'</span></a>
+      <span>© 2026 מלול ושות' — משרד עורכי דין. כל הזכויות שמורות.</span>
+    </div>
+    <p class="disclaimer">האמור באתר זה אינו מהווה ייעוץ משפטי או תחליף לייעוץ משפטי פרטני, ואין להסתמך עליו ככזה.</p>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
