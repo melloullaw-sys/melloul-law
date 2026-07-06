@@ -7,17 +7,17 @@
 <meta name="description" content="מלול ושות' — משרד עורכי דין עם ניסיון של מעל עשור בנדל&quot;ן, קניין רוחני, חוזים, דיני עבודה ודיני ירושה. ליווי משפטי אישי, מקצועי וממוקד תוצאה.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Assistant:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#14202E;
-  --ink-soft:#2B3A4C;
-  --paper:#FCFBF7;
-  --paper-deep:#F4F1E9;
-  --brass:#9C7A3C;
-  --brass-soft:#B99B5E;
-  --line:#E2DDD1;
-  --gray:#5C6673;
+  --ink:#4A1621;
+  --ink-soft:#5E1E2C;
+  --paper:#FBF7F1;
+  --paper-deep:#F5EDE3;
+  --brass:#B08A3E;
+  --brass-soft:#C9A24B;
+  --line:#E8DFD1;
+  --gray:#6B5A5F;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -39,7 +39,9 @@ header{
   border-bottom:1px solid var(--line);
 }
 .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:1.35rem;letter-spacing:.02em;color:var(--ink);text-decoration:none}
+.logo{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:1.35rem;letter-spacing:.02em;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+.emb{width:34px;height:34px;border:2px solid var(--brass);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.15rem;color:var(--ink-soft);flex:none;position:relative}
+.emb::after{content:'';position:absolute;inset:2px;border:1px solid rgba(176,138,62,.45);border-radius:50%}
 .logo span{color:var(--brass);font-weight:400}
 .nav-links{display:flex;gap:28px;list-style:none}
 .nav-links a{color:var(--ink-soft);text-decoration:none;font-weight:500;font-size:.95rem;transition:color .2s}
@@ -191,7 +193,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
 
 <header>
   <div class="container nav">
-    <a class="logo" href="#top">מלול <span>ושות'</span></a>
+    <a class="logo" href="#top"><span class="emb">M</span>מלול <span>ושות'</span></a>
     <ul class="nav-links">
       <li><a href="#about">אודות</a></li>
       <li><a href="#areas">תחומי עיסוק</a></li>
@@ -218,7 +220,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
       <div class="hero-stats">
         <div class="hero-stat"><b>10+</b><span>שנות ניסיון</span></div>
         <div class="hero-stat"><b>5</b><span>תחומי התמחות</span></div>
-        <div class="hero-stat"><b>4</b><span>עורכי דין</span></div>
+        <div class="hero-stat"><b>3</b><span>עורכי דין</span></div>
       </div>
     </div>
   </div>
@@ -235,7 +237,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
       </div>
       <aside class="about-quote reveal">
         <p>"תיק משפטי הוא לא רק מסמכים — הוא אנשים, נכסים ועתיד. כך אנחנו מתייחסים לכל לקוח."</p>
-        <small>— תמיר מלול, שותף מייסד</small>
+        <small>— צוות מלול ושות'</small>
       </aside>
     </div>
   </section>
@@ -291,12 +293,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
       <div class="sec-label">הצוות המשפטי</div>
       <h2 class="sec-title">עורכי הדין של המשרד</h2>
       <div class="team-grid">
-        <article class="member reveal">
-          <div class="initial">ת</div>
-          <h3>עו"ד תמיר מלול</h3>
-          <div class="role">שותף מייסד</div>
-          <p>מוביל את תחומי הנדל"ן והחוזים במשרד. ניסיון עשיר בליווי עסקאות מקרקעין מורכבות והתחדשות עירונית.</p>
-        </article>
         <article class="member reveal">
           <div class="initial">נ</div>
           <h3>עו"ד נבו בן שטרית</h3>
@@ -389,7 +385,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offs
 <footer>
   <div class="container">
     <div class="foot">
-      <a class="logo" href="#top">מלול <span>ושות'</span></a>
+      <a class="logo" href="#top"><span class="emb">M</span>מלול <span>ושות'</span></a>
       <span>© 2026 מלול ושות' — משרד עורכי דין. כל הזכויות שמורות.</span>
     </div>
     <p class="disclaimer">האמור באתר זה אינו מהווה ייעוץ משפטי או תחליף לייעוץ משפטי פרטני, ואין להסתמך עליו ככזה.</p>
